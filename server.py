@@ -61,8 +61,7 @@ def index():
 
 @app.route("/change-bg", methods=["POST"])
 def change_bg():
-    if requests_queue.qsize() > BATCH_SIZE:
-        return jsonify({'error': 'Too Many Reqeusts'}), 429
+    
 
     org_img_bytes = request.files['orgImage'].read()
     bg_img_bytes = request.files['bgImage'].read()
